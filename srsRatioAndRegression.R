@@ -4,7 +4,7 @@ N <- 5996
 consumption <- read_excel("consumptionUBC.xlsx")
 
 # clean data
-consumption$`Cost(month)` <- as.numeric(consumption$`Cost(month)`)
+consumption$`Expenses(month)` <- as.numeric(consumption$`Expenses(month)`)
 consumption$`Housing(month)` <- as.numeric(consumption$`Housing(month)` )
 consumption$`Diet(month)` <- as.numeric(consumption$`Diet(month)`)
 consumption$`Hobby(month)` <- as.numeric(consumption$`Hobby(month)`)
@@ -13,12 +13,12 @@ consumption$`dailyNecessities(month)` <- as.numeric(
 consumption$`LearningMaterials(term)` <- as.numeric(
   consumption$`LearningMaterials(term)`)
 consumption <- na.omit(consumption)
-y.sample <- consumption$`Cost(month)`
+y.sample <- consumption$`Expenses(month)`
 n <- length(y.sample)
 
 # choose auxiliary variable
 cor(consumption$`Housing(month)`, y.sample) # 0.1739406 
-cor(consumption$`Diet(month)`, y.sample) # 0.9502347 strong
+cor(consumption$`Diet(month)`, y.sample) # 0.9502347, strong
 cor(consumption$`Hobby(month)`, y.sample) # 0.437956
 cor(consumption$`dailyNecessities(month)`, y.sample) # 0.6286485
 cor(consumption$`LearningMaterials(term)` / 3, y.sample) # 0.4711414
