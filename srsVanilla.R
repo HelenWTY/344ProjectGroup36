@@ -14,6 +14,8 @@ ybar.srs <- mean(y.sample)
 se.srs <- sqrt((1 - n / N) * var(y.sample) / n)
 srs.vanilla <- c(ybar.srs, se.srs)
 CI.srs.vanilla <- ybar.srs + 1.96 * c(-se.srs, se.srs) 
+
+# result
 srs.vanilla
 CI.srs.vanilla
 
