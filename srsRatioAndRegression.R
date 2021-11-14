@@ -16,7 +16,7 @@ consumption <- na.omit(consumption)
 y.sample <- consumption$`Cost(month)`
 n <- length(y.sample)
 
-# choose auxilary variable
+# choose auxiliary variable
 cor(consumption$`Housing(month)`, y.sample) # 0.1739406 
 cor(consumption$`Diet(month)`, y.sample) # 0.9502347 strong
 cor(consumption$`Hobby(month)`, y.sample) # 0.437956
