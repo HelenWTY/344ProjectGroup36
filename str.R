@@ -7,7 +7,7 @@ N.male <- 2698
 N.female <- 3298
 w.male <- 0.45
 w.female <- 0.55
-consumption <- read_excel("consumptionUBC.xlsx")
+consumption <- read_excel("consumptionUBCstr.xlsx")
 row.indices.male <- which(consumption$Gender == 'male')
 row.indices.female <- which(consumption$Gender == 'female')
 male.sample <- consumption[row.indices.male, ]
@@ -34,4 +34,3 @@ str <- c(ybar.str, se.str)
 CI.str <- ybar.str + 1.96 * c(-se.str, se.str)
 str
 CI.str
-
