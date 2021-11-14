@@ -29,8 +29,11 @@ ybar.female <- mean(y.female.sample)
 ybar.str <- w.male*ybar.male + w.female*ybar.female
 se.male <- sqrt((1 -n.male / N.male) * var(y.male.sample) / n.male) 
 se.female <- sqrt((1 -n.female / N.female) * var(y.female.sample) / n.female)
-se.str <-sqrt((N.male / N)^2 * se.male^2 + (N.female / N)^2 * se.female^2)
+se.str <-sqrt(w.male^2 * se.male^2 + w.female^2 * se.female^2)
 str <- c(ybar.str, se.str)
 CI.str <- ybar.str + 1.96 * c(-se.str, se.str)
+
+# result
 str
 CI.str
+
