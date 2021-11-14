@@ -34,6 +34,8 @@ se.female <- sqrt((1 -n.female / N.female) * var(y.female.sample) / n.female)
 se.str <-sqrt((N.male / N)^2 * se.male^2 + (N.female / N)^2 * se.female^2)
 str.bin <- c(ybar.str, se.str)
 CI.str.bin <- ybar.str + 1.96 * c(-se.str, se.str)
+
+# result
 str.bin
 CI.str.bin
 
