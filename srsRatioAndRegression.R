@@ -8,8 +8,10 @@ consumption$`Cost(month)` <- as.numeric(consumption$`Cost(month)`)
 consumption$`Housing(month)` <- as.numeric(consumption$`Housing(month)` )
 consumption$`Diet(month)` <- as.numeric(consumption$`Diet(month)`)
 consumption$`Hobby(month)` <- as.numeric(consumption$`Hobby(month)`)
-consumption$`dailyNecessities(month)` <- as.numeric(consumption$`dailyNecessities(month)`)
-consumption$`LearningMaterials(term)` <- as.numeric(consumption$`LearningMaterials(term)`)
+consumption$`dailyNecessities(month)` <- as.numeric(
+  consumption$`dailyNecessities(month)`)
+consumption$`LearningMaterials(term)` <- as.numeric(
+  consumption$`LearningMaterials(term)`)
 consumption <- na.omit(consumption)
 y.sample <- consumption$`Cost(month)`
 n <- length(y.sample)
@@ -31,7 +33,7 @@ ybar.ratio <- (ybar.srs / xbar.srs) * xbar.pop      # ratio estimation
 e.ratio <- y.sample - (ybar.srs / xbar.srs) * x.sample
 s.e.sq <- 1 / (n-1) * sum(e.ratio^2)
 se.ratio <- sqrt((1 - n/N) * (s.e.sq / n))
-srs.ratio <-c(ybar.ratio, se.ratio)
+srs.ratio <- c(ybar.ratio, se.ratio)
 CI.srs.ratio <- ybar.ratio + 1.96 * c(-se.ratio, se.ratio) 
 
 # regression estimation
@@ -40,9 +42,10 @@ summary(lm.regression)
 ybar.regression <- 2.9457 * xbar.pop + 67.0118
 e.regression <- resid(lm.regression)
 se.regression <- sqrt((1 - n/N)*(var(e.regression) / n))
-srs.regression <-c(ybar.regression, se.regression)
+srs.regression <- c(ybar.regression, se.regression)
 CI.srs.regression <- ybar.regression + 1.96 * c(-se.regression, se.regression) 
 
+# result
 srs.ratio
 CI.srs.ratio
 srs.regression
