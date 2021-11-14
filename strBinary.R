@@ -7,9 +7,9 @@ N.male <- 2698
 N.female <- 3298
 w.male <- 0.45
 w.female <- 0.55
-consumption <- read_excel("consumptionUBC.xlsx")
-row.indices.male <-which(consumption$Gender == 'male')
-row.indices.female <-which(consumption$Gender == 'female')
+consumption <- read_excel("consumptionUBCstr.xlsx")
+row.indices.male <- which(consumption$Gender == 'male')
+row.indices.female <- which(consumption$Gender == 'female')
 male.sample <- consumption[row.indices.male, ]
 female.sample <- consumption[row.indices.female, ]
 
@@ -19,9 +19,9 @@ female.sample$`Expenses(month)` = as.numeric(female.sample$`Expenses(month)`)
 male.sample <- na.omit(male.sample)
 female.sample <- na.omit(female.sample)
 # Is c$1800/month enough?
-# y: whether the cost per month is equivalent to or over 1800
-y.male.sample <- ifelse(male.sample$`Expenses(month)` < 1800, 0, 1)
-y.female.sample <- ifelse(female.sample$`Expenses(month)` < 1800, 0, 1)
+# y: whether the cost per month is over 1800
+y.male.sample <- ifelse(male.sample$`Expenses(month)` <= 1800, 0, 1)
+y.female.sample <- ifelse(female.sample$`Expenses(month)` <= 1800, 0, 1)
 n.male <- length(y.male.sample)
 n.female <- length(y.female.sample)
 
